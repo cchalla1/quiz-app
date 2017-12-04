@@ -2,6 +2,10 @@ angular.module("UserControllers", ["service"])
 
 .controller("UserHomeCtrl", ['$scope', '$location', 'UserService', function($scope, $location, UserService) {
   $scope.noOfQuestions= 0;
+  
+  $scope.logout = function() {
+	$location.path("/");
+  }
 
   $scope.startTest = function() {
     if($scope.noOfQuestions > 0) {

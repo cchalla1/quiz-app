@@ -6,6 +6,10 @@ angular.module("AdminControllers", ["service"])
   $scope.aphabetsArray = function(num) {
     return alphabets.slice(0, num);
   }
+  
+  $scope.logout = function() {
+	$location.path("/");
+  }
 
   $scope.doSubmit = function() {
     if($scope.data.type === "text") {
