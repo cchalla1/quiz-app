@@ -18,7 +18,7 @@ app.set("view engine", "html");
 app.use(bodyParser.json());
 
 app.use('/', router);
-
-app.listen("8888", function() {
+var port = process.env.PORT || "8888";
+app.listen(port, function() {
   console.log("Server Started on 8888");
 })
