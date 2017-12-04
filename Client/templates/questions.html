@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col col-md-10"></div>
+  <div class="col col-md-2">
+    <button class="btn btn-primary" ng-click="goHome()" style="margin:20px; float:right">Home</button>
+  </div>
+</div>
+<div class="row" style="margin-top:100px">
+  <div class="col col-md-2"></div>
+  <div class="col col-md-8">
+    <div class="card" ng-repeat="(index, question) in questions" style="margin-bottom:30px;">
+      <div class="card-body">
+        <h4 class="card-title">Question {{index+1}}</h4>
+        <p class="card-text">{{question.question.question}}</p>
+        <div class="form-check" style="margin-bottom:30px">
+          <div ng-if="question.question.type == 'options'">
+            <label class="form-check-label" ng-repeat-start="(key, option) in question.question.options">
+              <span ng-style="question.answer == key && {'color':'green', 'font-style':'italic'}">{{key}}. {{option}}</span>
+            </label><br><br ng-repeat-end/>
+          </div>
+          <label class="form-check-label" ng-if="question.question.type === 'text'" style="margin-top:20px">
+            <span style="color:green; font-style:italic">Answer : {{question.answer}}</span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col col-md-4"></div>
+</div>

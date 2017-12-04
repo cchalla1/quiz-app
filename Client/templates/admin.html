@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="col col-md-10"></div>
+  <div class="col col-md-2">
+    <button class="btn btn-primary" ng-click="allQuestions()" style="margin:20px; float:right">All Questions</button>
+  </div>
+</div>
+<div class="row" style="margin-top:100px">
+  <div class="col col-md-2"></div>
+  <div class="col col-md-8" style="border:solid 1px #000000">
+    <form style="margin:20px">
+      <div class="form-group">
+        <label for="question">Enter the Question</label>
+        <textarea class="form-control" id="question" rows="3" ng-model="data.question"></textarea>
+      </div>
+      <div class="form-check">
+        Question Type :
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" name="text" id="text" value="text" ng-model="data.type">
+          Text
+        </label>
+        <label class="form-check-label">
+          <input class="form-check-input" type="radio" name="options" id="options" value="options" ng-model="data.type">
+          Options
+        </label>
+        <label class="form-check-label" ng-if="data.type === 'options'">
+          No.of Options:
+          <input type="number" name="optionsCount" id="optionsCount" ng-model="data.optionsCount">
+        </label>
+      </div>
+      <div class="form-group" style="margin-top:50px" ng-if="data.optionsCount && data.type === 'options'">
+        <div ng-repeat="alphabet in aphabetsArray(data.optionsCount)" style="margin-top:20px">
+          {{alphabet}} <input type="text" class="form-control" ng-model="data.options[alphabet]" placeholder="Enter Option">
+        </div>
+      </div>
+      <div class="form-group" style="margin-top:50px">
+        <label for="answer">Enter Answer</label>
+        <input type="text" class="form-control" id="answer" ng-model="data.answer" placeholder="Enter Answer">
+      </div>
+      <div class="row">
+        <div class="col col-md-4"></div>
+        <div class="col col-md-4">
+          <button class="btn btn-default btn-block" ng-click="doSubmit()">Submit Question</button>
+        </div>
+        <div class="col col-md-2"></div>
+      </div>
+    </form>
+  </div>
+  <div class="col col-md-4"></div>
+</div>

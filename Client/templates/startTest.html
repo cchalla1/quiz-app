@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col col-md-8"></div>
+  <div class="col col-md-2">
+    <p style="margin-top:25px; float:right">Timer : {{hours}} : {{minutes}} : {{seconds}}</p>
+  </div>
+  <div class="col col-md-2">
+    <button class="btn btn-primary" ng-click="submitResults()" style="margin:20px; float:right">Submit</button>
+  </div>
+</div>
+<div class="row" style="margin-top:100px">
+  <div class="col col-md-2"></div>
+  <div class="col col-md-8">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Question</h4>
+        <p class="card-text">{{currentQuestion.question}}</p>
+        <div class="form-check" style="margin-bottom:30px">
+          <div ng-if="currentQuestion.type == 'options'">
+            <label class="form-check-label" ng-repeat-start="(index, option) in currentQuestion.options">
+              <input class="form-check-input" type="radio" name="options" ng-value="index" ng-model="data.answer">
+              {{option}}
+            </label><br><br ng-repeat-end/>
+          </div>
+          <label class="form-check-label" ng-if="currentQuestion.type === 'text'" style="margin-top:20px">
+            Answer :
+            <input type="text" name="textAnswer" ng-model="data.answer">
+          </label>
+        </div>
+        <button class="card-link btn btn-primary" ng-disabled="firstQuestion" ng-click="previousQuestion()">Previous</button>
+        <button class="card-link btn btn-primary" style="float:right" ng-disabled="lastQuestion" ng-click="nextQuestion()">Next</button>
+      </div>
+    </div>
+  </div>
+  <div class="col col-md-4"></div>
+</div>

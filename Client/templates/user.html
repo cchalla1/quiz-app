@@ -1,0 +1,26 @@
+<div class="row" style="margin-top:100px">
+  <div class="col col-md-2"></div>
+  <div class="col col-md-8">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Instructions</h4>
+        <div class="card-text">
+          <ul>
+            <li> Questions can be of multiple choice or input based.</li>
+            <li> Once completed, click on submit button above.</li>
+            <li> You can go to any question while in the middle of the test.</li>
+            <li> 1 minute time is give for each question to be answered.</li>
+          </ul>
+        </div>
+        <div class="form-check" style="margin-bottom:30px">
+          <label class="form-check-label" style="margin-top:20px">
+            No.of Questions :
+            <input type="number" name="noOfQuestions" ng-model="noOfQuestions" required>
+          </label>
+        </div>
+        <button class="card-link btn btn-primary" style="float:right" ng-click="startTest()">Start Test</button>
+      </div>
+    </div>
+  </div>
+  <div class="col col-md-4"></div>
+</div>
